@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/your-repository.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh './gradlew build' // Adjust command based on your build tool
+            }
+        }
+        stage('Test') {
+            steps {
+                sh './gradlew test' // Adjust command based on your test tool
+            }
+        }
+    }
+}
